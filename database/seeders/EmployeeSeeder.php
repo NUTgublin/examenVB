@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
 use App\Models\Employee;
 use Illuminate\Database\Seeder;
 
@@ -12,8 +13,10 @@ class EmployeeSeeder extends Seeder
      */
     public function run(): void
     {
+        $companies = Company::all();
+
         Employee::factory(10)
-            ->hasCompany(1)
+            ->recycle($companies)
             ->create();
     }
 }

@@ -12,6 +12,9 @@ class CompanySeeder extends Seeder
      */
     public function run(): void
     {
-        Company::factory()->count(10)->create();
+        Company::factory()
+            ->count(10)
+            ->hasEmployees(5)
+            ->create();
     }
 }
